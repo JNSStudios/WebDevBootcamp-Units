@@ -1,0 +1,33 @@
+/* Write your code here: */
+
+/* multi selector*/
+h1, h2 {
+    color: blueviolet;
+}
+
+/* parent-child selector*/
+/* assign to the direct child of the parent */
+/* only one layer deep */
+.box > p {
+    color: firebrick;
+}
+
+/* ancestor selector */
+/* ANY <li> inside of a section with class "box" */
+/* can go multiple layers deep */
+.box li {
+    color: blue;
+}
+
+/* chaining selector */
+/* basically a direct filter of what you want */
+/* ALWAYS start with the element since there are no spaces*/
+
+li.done{
+    color: green;
+}
+
+/* all these methods can be combined*/
+ul p.done {
+    font-size: 0.5rem;
+}
