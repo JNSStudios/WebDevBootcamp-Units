@@ -7,6 +7,7 @@ example*/
 demo*.*
 demo*/
 node_modules/
+credentials.*
 
 
 # below are unique files that are part of solutions or demos that should not be publicly available.
