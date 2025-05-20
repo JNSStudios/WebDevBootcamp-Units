@@ -45,12 +45,49 @@ app.get("/filter", (req, res) => {
 
 });
 
-
 //4. POST a new joke
+
+app.post("/jokes", (req, res) => {
+  const newJoke = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+  jokes.push(newJoke);
+  res.json(newJoke);
+});
 
 //5. PUT a joke
 
+app.put("/jokes/:id", (req, res) => {
+  const jokeID = parseInt(req.params.id);
+  const joke = jokes.find((joke) => joke.id === jokeID);
+  if (joke) {
+    joke.jokeText = req.body.text;
+    joke.jokeType = req.body.type;
+    res.json(joke);
+  } else {
+    res.status(404).json({ error: "Joke not found" });
+  }
+});
+
 //6. PATCH a joke
+
+app.patch("/jokes/:id", (req, res) => {
+  const jokeID = parseInt(req.params.id);
+  const jokeToUpdate = jokes.find((joke) => joke.id === jokeID);
+  if (jokeToUpdate) {
+    if(req.body.text) {
+      jokeToUpdate.jokeText = req.body.text;
+    }
+    if(req.body.type) {
+      jokeToUpdate.jokeType = req.body.type;
+    }
+    res.json(jokeToUpdate);
+  } else {
+    res.status(404).json({ error: "Joke not found" });
+  }
+});
 
 //7. DELETE Specific joke
 
