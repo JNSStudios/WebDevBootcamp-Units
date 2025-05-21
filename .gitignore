@@ -9,7 +9,7 @@ demo*/
 node_modules/
 credentials.*
 keys.*
-
+queries.sql
 
 # below are unique files that are part of solutions or demos that should not be publicly available.
 Unit 8/Lesson 2/ 
